@@ -7,7 +7,6 @@ class AppTextStyles {
   static const String grandFontFamily = 'GrandHotel';
   static const String latofontFamily = 'Lato';
 
-
   static const TextStyle heading = TextStyle(
     fontFamily: grandFontFamily,
     fontSize: 40,
@@ -15,17 +14,27 @@ class AppTextStyles {
     color: AppColors.primaryColor,
   );
 
-  static const TextStyle subheading = TextStyle(
-    fontFamily: latofontFamily,
+  // Body text style for descriptions
+  static const TextStyle body = TextStyle(
     fontSize: 20,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w400,
     color: AppColors.blackColor,
+    fontFamily: 'Lato',
+    height: 1.5,
   );
 
-  static const TextStyle body = TextStyle(
-    fontFamily: latofontFamily,
+  // Button text style
+  static const TextStyle button = TextStyle(
     fontSize: 16,
-    fontWeight: FontWeight.normal,
-    color: Colors.black87,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Lato',
+  );
+
+  // Small text style
+  static const TextStyle caption = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    color: AppColors.secondaryTextColor,
+    fontFamily: 'Lato',
   );
 }

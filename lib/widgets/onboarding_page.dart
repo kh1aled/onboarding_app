@@ -1,4 +1,3 @@
-import 'package:birdle/resources/app_colors.dart';
 import 'package:birdle/resources/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:birdle/constants/app_ui_constants.dart';
@@ -20,7 +19,7 @@ class OnboardingPage extends StatelessWidget {
 
     return Stack(
       children: [
-        // Ellipse background with custom position and size
+        // Ellipse background with custom position and size - YOUR OLD DESIGN
         Positioned(
           top: ellipseConfig.top,
           right: ellipseConfig.right,
@@ -33,7 +32,7 @@ class OnboardingPage extends StatelessWidget {
             fit: BoxFit.contain,
           ),
         ),
-        // Main content
+        // Main content - YOUR OLD DESIGN
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -84,7 +83,7 @@ class OnboardingPage extends StatelessWidget {
       case 2:
         return EllipseConfig(
           image: AppImages.ellipseImage3,
-          top: 0,
+          top: 10,
           left: 0,
           right: 0,
           width: double.infinity,
@@ -93,10 +92,10 @@ class OnboardingPage extends StatelessWidget {
       default:
         return EllipseConfig(
           image: AppImages.ellipseImage1,
-          top: -125,
+          top: 0,
           right: -125,
-          width: 250,
-          height: 250,
+          width: 481,
+          height: 481,
         );
     }
   }

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:birdle/resources/app_colors.dart';
 import 'package:birdle/resources/app_text_styles.dart';
-
 import '../constants/app_ui_constants.dart';
+// import 'package:flutter/material.dart';
+// import 'package:onboarding_winter_project/core/constants/app_ui_constants.dart';
+// import 'package:onboarding_winter_project/core/resources/app_colors.dart';
+// import 'package:onboarding_winter_project/core/resources/app_text_styles.dart';
+
 
 class PageFooter extends StatelessWidget {
   const PageFooter({
@@ -31,7 +35,7 @@ class PageFooter extends StatelessWidget {
             child: Text(
               'Prev'.padRight(11, ' '),
               style: AppTextStyles.body.copyWith(
-                color: AppColors.blackColor,
+                color: AppColors.whiteColor,
               ),
             ),
           ),
@@ -68,7 +72,7 @@ class PageFooter extends StatelessWidget {
                 ? 'Get Started'
                 : 'Next'.padLeft(11, ' '),
             style: AppTextStyles.body.copyWith(
-              color: AppColors.primaryColor,
+              color: AppColors.whiteColor,
             ),
           ),
         ),
