@@ -23,10 +23,6 @@ class PageHeader extends StatelessWidget {
             color: AppColors.blackColor,
           ),
         ),
-        TextButton(
-          onPressed: () {},
-          child: Text('Skip', style: AppTextStyles.body),
-        ),
       ],
     );
   }

@@ -4,21 +4,21 @@ import 'package:flutter/material.dart';
 class AppTextStyles {
   AppTextStyles._();
 
-  static const String grandFontFamily = 'Grand Hotel';
+  static const String grandFontFamily = 'GrandHotel';
   static const String latofontFamily = 'Lato';
 
 
   static const TextStyle heading = TextStyle(
     fontFamily: grandFontFamily,
-    fontSize: 32,
-    fontWeight: FontWeight.bold,
+    fontSize: 40,
+    fontWeight: FontWeight.normal,
     color: AppColors.primaryColor,
   );
 
   static const TextStyle subheading = TextStyle(
     fontFamily: latofontFamily,
     fontSize: 20,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.normal,
     color: AppColors.blackColor,
   );
 

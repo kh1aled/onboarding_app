@@ -1,7 +1,8 @@
+import 'package:birdle/resources/app_colors.dart';
+import 'package:birdle/resources/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:birdle/constants/app_ui_constants.dart';
 import 'package:birdle/resources/app_text_styles.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key, required this.pageIndex});
@@ -15,34 +16,109 @@ class OnboardingPage extends StatelessWidget {
     }
 
     final currentPage = AppUiConstants.onboardingPages[pageIndex];
+    final ellipseConfig = _getEllipseConfig(pageIndex);
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Stack(
       children: [
-        if (currentPage.image.isNotEmpty)
-          SvgPicture.asset(currentPage.image)
-        else
-          const SizedBox(),
-        const SizedBox(height: 30),
-
-        // Title
-        Text(
-          currentPage.title,
-          style: AppTextStyles.heading,
-          textAlign: TextAlign.center,
+        // Ellipse background with custom position and size
+        Positioned(
+          top: ellipseConfig.top,
+          right: ellipseConfig.right,
+          left: ellipseConfig.left,
+          bottom: ellipseConfig.bottom,
+          child: Image.asset(
+            ellipseConfig.image,
+            width: ellipseConfig.width,
+            height: ellipseConfig.height,
+            fit: BoxFit.contain,
+          ),
         ),
-
-        const SizedBox(height: 10),
-
-        // الوصف
-        Text(
-          currentPage.description,
-          style: AppTextStyles.body,
-          textAlign: TextAlign.center,
+        // Main content
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(currentPage.image),
+            const SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                currentPage.title,
+                style: AppTextStyles.heading,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                currentPage.description,
+                style: AppTextStyles.body,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 30),
+          ],
         ),
-
-        const SizedBox(height: 30),
       ],
     );
   }
+
+  EllipseConfig _getEllipseConfig(int index) {
+    switch (index) {
+      case 0:
+        return EllipseConfig(
+          image: AppImages.ellipseImage1,
+          top: 0,
+          right: -125,
+          width: 481,
+          height: 481,
+        );
+      case 1:
+        return EllipseConfig(
+          image: AppImages.ellipseImage2,
+          top: 0,
+          left: -125,
+          width: 481,
+          height: 481,
+        );
+      case 2:
+        return EllipseConfig(
+          image: AppImages.ellipseImage3,
+          top: 0,
+          left: 0,
+          right: 0,
+          width: double.infinity,
+          height: 400,
+        );
+      default:
+        return EllipseConfig(
+          image: AppImages.ellipseImage1,
+          top: -125,
+          right: -125,
+          width: 250,
+          height: 250,
+        );
+    }
+  }
+}
+
+// Helper class to hold ellipse configuration
+class EllipseConfig {
+  final String image;
+  final double? top;
+  final double? right;
+  final double? left;
+  final double? bottom;
+  final double width;
+  final double height;
+
+  EllipseConfig({
+    required this.image,
+    this.top,
+    this.right,
+    this.left,
+    this.bottom,
+    required this.width,
+    required this.height,
+  });
 }

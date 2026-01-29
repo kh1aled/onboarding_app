@@ -30,11 +30,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     }
   }
 
-  // Skip onboarding and go directly to the main screen
-  void skip() {
-    navigateToMainScreen();
-  }
-
   // Navigate to main screen (replace with your main screen route)
   void navigateToMainScreen() {
     // Example: Navigator.pushReplacementNamed(context, '/home');
@@ -45,26 +40,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              // Skip button at the top-right
-              Align(
-                alignment: Alignment.topRight,
-                child: TextButton(
-                  onPressed: skip,
-                  child: const Text('Skip'),
-                ),
-              ),
+        child: Column(
+          children: [
+            // The onboarding page content (takes full space)
+            Expanded(
+              child: OnboardingPage(pageIndex: pageIndex),
+            ),
 
-              // The onboarding page content
-              Expanded(
-                child: OnboardingPage(pageIndex: pageIndex),
-              ),
-
-              // Dots indicators and navigation buttons
-              Row(
+            // Dots indicators and navigation buttons with padding
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // Previous button, disabled on first page
@@ -102,8 +88,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

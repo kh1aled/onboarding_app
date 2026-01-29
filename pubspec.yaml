@@ -1,6 +1,6 @@
 name: birdle
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -19,6 +19,19 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  
   assets:
     - assets/images/onboarding/
+    - assets/images/ellipse/
+
+  fonts:
+    - family: GrandHotel
+      fonts:
+        - asset: assets/fonts/GrandHotel-Regular.ttf
+          weight: 400
+
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Lato-Bold.ttf
+          weight: 700
